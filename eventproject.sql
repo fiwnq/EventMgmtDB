@@ -33,15 +33,14 @@ ContactInfo VARCHAR(100),
 PRIMARY KEY(ID)
 );
 
+-- ALTERED
 CREATE TABLE Attendees (
 ID INT UNSIGNED AUTO_INCREMENT,
 Name VARCHAR(50) UNIQUE,
 Email VARCHAR(100),
-RegistrationDate DATE,
-EventAttended VARCHAR(100),
-Organization VARCHAR(100),
+OrganizationID INT,
 PRIMARY KEY(ID),
-FOREIGN KEY (EventAttended) REFERENCES Events(Title)
+FOREIGN KEY (OrganizationID) REFERENCES Organizations(ID)
 ON UPDATE CASCADE
 ON DELETE SET NULL
 );
@@ -63,7 +62,6 @@ ON UPDATE CASCADE
 ON DELETE CASCADE
 );
 
-/*
 CREATE TABLE BookedAttendees (
 EventID INT UNSIGNED,
 AttendeeID INT UNSIGNED,
@@ -78,4 +76,23 @@ FOREIGN KEY (AttendeeName) REFERENCES Attendees(Name)
 ON UPDATE CASCADE
 ON DELETE SET NULL
 );
+
+/*
+ADDED TABLES - 
+	Stations
+    StationTopics
+    Organizations
+    Catering
+    Business
 */
+
+-- CREATE TABLE Stations();
+-- CREATE TABLE StationTopics();
+CREATE TABLE Organizations(
+ID INT UNSIGNED AUTO_INCREMENT,
+Name VARCHAR(50),
+Description VARCHAR(200),
+PRIMARY KEY (ID)
+);
+-- CREATE TABLE Catering();
+-- CREATE TABLE Business();

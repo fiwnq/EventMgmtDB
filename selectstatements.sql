@@ -1,6 +1,4 @@
 -- Select Statements
-SELECT *
-FROM Speakers;
 
 -- 1. How many events have used the venue with ID 1?
 

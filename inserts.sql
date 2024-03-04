@@ -35,11 +35,16 @@ VALUES (1, 'Lifestyles'),
 	(1, 'How to create your own small business'),
 	(1, 'memory-safe programming languages');
 
-INSERT INTO Catering(BusinessID, EventID, Servings)
-VALUES (1, 1, 300),
-	(2, 3, 130),
-	(3, 1, 400);
-    
+INSERT INTO Catering(BusinessID)
+VALUES (1),
+	(2),
+	(3);
+
+INSERT INTO CateringService(CateringID, EventID, Servings, CateringType, Time)
+VALUES (1, 1, 100, 'Lunch', '12:00 PM'),
+(2, 4, 200, 'Breakfast', '8:00 AM'),
+(3, 2, 350, 'Snacks', '2:00 PM');
+
 INSERT INTO BookedEvents(EventID, VenueID)
 VALUES (1, 2),
 	(2, 2),

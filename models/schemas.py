@@ -33,3 +33,7 @@ class Attendee(db.Model):
     att_name = db.Column(db.String(50), unique=True, nullable=True)
     att_email = db.Column(db.String(100), unique=False, nullable=True)
     org_id = db.Column(db.Integer, unique=False, nullable=True) # foreign key, how do i implement this?
+
+class Event(db.Model):
+    event_id = db.Column(db.Integer, primary_key = True)
+    event_name = db.Column(db.String(100), unique = True, nullable = False)

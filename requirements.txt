@@ -14,3 +14,5 @@ typing_extensions==4.5.0
 Werkzeug==2.2.2
 flask_marshmallow==1.2.1
 marshmallow-sqlalchemy
+cryptography==36.0.1
+

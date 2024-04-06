@@ -37,3 +37,5 @@ class Attendee(db.Model):
 class Event(db.Model):
     event_id = db.Column(db.Integer, primary_key = True)
     event_name = db.Column(db.String(100), unique = True, nullable = False)
+    event_datetime = db.Column(db.DateTime, unique = True, nullable = False)
+    event_desc = db.Column(db.String(1000), unique = False, nullable = True)

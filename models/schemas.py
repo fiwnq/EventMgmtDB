@@ -1,4 +1,4 @@
-from sqlalchemy import DateTime
+from sqlalchemy import ForeignKey, DateTime
 from core import db
 from sqlalchemy.sql import func
 
@@ -23,13 +23,21 @@ class ActorInfo(db.Model):
 class Organization(db.Model):
 
     org_id = db.Column(db.Integer, primary_key=True)
-    org_name = db.Column(db.String(50), unique=True, nullable=True)
+    org_name = db.Column(db.String(50), unique=True, nullable=False)
     org_desc = db.Column(db.String(300), unique=False, nullable=True)
 
 
 class Attendee(db.Model):
 
     att_id = db.Column(db.Integer, primary_key=True)
-    att_name = db.Column(db.String(50), unique=True, nullable=True)
+    att_name = db.Column(db.String(50), unique=True, nullable=False)
     att_email = db.Column(db.String(100), unique=False, nullable=True)
-    org_id = db.Column(db.Integer, unique=False, nullable=True) # foreign key, how do i implement this?
+    org_id = db.Column(db.Integer, ForeignKey(Organization.org_id), unique=False, nullable=False) # foreign key, how do i implement this?
+
+class Speaker(db.Model):
+
+    speaker_id = db.Column(db.Integer, primary_key=True)
+    speaker_name = db.Column(db.String(50), unique=True, nullable=False)
+    speaker_bio = db.Column(db.String(1000), unique=False, nullable=True)
+    speaker_info = db.Column(db.String(100), unique=False, nullable=True)
+

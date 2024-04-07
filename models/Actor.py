@@ -24,4 +24,3 @@ class ActorSchema(ma.SQLAlchemyAutoSchema):
 
 actor_schema = ActorSchema()
 actors_schema = ActorSchema(many=True)
-

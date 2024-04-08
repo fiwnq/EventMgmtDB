@@ -39,3 +39,10 @@ class Event(db.Model):
     event_name = db.Column(db.String(100), unique = True, nullable = False)
     event_datetime = db.Column(db.DateTime, unique = True, nullable = False)
     event_desc = db.Column(db.String(1000), unique = False, nullable = True)
+
+class Venue(db.Model):
+    venue_id = db.Column(db.Integer, primary_key = True)
+    venue_title = db.Column(db.String(100), unique = True, nullable = False)
+    venue_location = db.Column(db.String(50), unique = False, nullable = False)
+    venue_capacity = db.Column(db.Integer, unique = False, nullable = False)
+    venue_contact = db.Column(db.String(100), unique = False, nullable = True)

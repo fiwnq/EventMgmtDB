@@ -58,3 +58,21 @@ class Venue(db.Model):
     venue_location = db.Column(db.String(50), unique = False, nullable = False)
     venue_capacity = db.Column(db.Integer, unique = False, nullable = False)
     venue_contact = db.Column(db.String(100), unique = False, nullable = True)
+
+class Business(db.Model):
+    business_id = db.Column(db.Integer, primary_key = True)
+    business_name = db.Column(db.String(50), unique = True, nullable = False)
+    business_bio = db.Column(db.String(500), unique = True, nullable = True)
+    business_contact = db.Column(db.String(100), unique = True, nullable = False)
+
+class Catering(db.Model):
+    catering_id = db.Column(db.Integer, primary_key = True)
+    catering_bus_id = db.Column(db.Integer, ForeignKey(Business.business_id), unique = False, nullable = False, default = 1)
+
+class CateringService(db.Model):
+    cs_id = db.Column(db.Integer, primary_key = True)
+    cs_catering_id = db.Column(db.Integer, ForeignKey(Catering.catering_id), unique = False, nullable = False)
+    cs_event_id = db.Column(db.Integer, ForeignKey(Event.event_id), unique = False, nullable = False)
+    cs_servings = db.Column(db.Integer, unique = False, nullable = False)
+    cs_type = db.Column(db.String(50), unique = True, nullable = True)
+    cs_time = db.Column(db.Time, unique = False, nullable = False)

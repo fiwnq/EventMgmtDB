@@ -21,13 +21,12 @@ class ActorInfo(db.Model):
     last_name = db.Column(db.String(20), unique=False, nullable=False)
     film_info = db.Column(db.String(255), nullable=True)
 
-
 class Organization(db.Model):
 
     org_id = db.Column(db.Integer, primary_key=True)
     org_name = db.Column(db.String(50), unique=True, nullable=False)
     org_desc = db.Column(db.String(300), unique=False, nullable=True)
-
+    last_update = db.Column(DateTime(timezone=True), nullable=True, onupdate=func.now())
 
 class Attendee(db.Model):
 
@@ -35,7 +34,7 @@ class Attendee(db.Model):
     att_name = db.Column(db.String(50), unique=True, nullable=False)
     att_email = db.Column(db.String(100), unique=False, nullable=True)
     org_id = db.Column(db.Integer, ForeignKey(Organization.org_id), unique=False, nullable=False) # foreign key, how do i implement this?
-
+    last_update = db.Column(DateTime(timezone=True), nullable=True, onupdate=func.now())
 
 class Speaker(db.Model):
 
@@ -43,7 +42,6 @@ class Speaker(db.Model):
     speaker_name = db.Column(db.String(50), unique=True, nullable=False)
     speaker_bio = db.Column(db.String(1000), unique=False, nullable=True)
     speaker_info = db.Column(db.String(100), unique=False, nullable=True)
-
 
 class Event(db.Model):
     

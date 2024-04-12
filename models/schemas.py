@@ -35,7 +35,7 @@ class Attendee(db.Model):
     att_id = db.Column(db.Integer, primary_key=True)
     att_name = db.Column(db.String(50), unique=True, nullable=False)
     att_email = db.Column(db.String(100), unique=False, nullable=True)
-    org_id = db.Column(db.Integer, ForeignKey(Organization.org_id), unique=False, nullable=False) # foreign key, how do i implement this?
+    org_id = db.Column(db.Integer, ForeignKey(Organization.org_id), unique=False, nullable=False)
     last_update = db.Column(DateTime(timezone=True), nullable=True, onupdate=func.now())
 
 
@@ -72,11 +72,13 @@ class Business(db.Model):
     business_name = db.Column(db.String(50), unique = True, nullable = False)
     business_bio = db.Column(db.String(500), unique = True, nullable = True)
     business_contact = db.Column(db.String(100), unique = True, nullable = False)
+    last_update = db.Column(DateTime(timezone=True), nullable=True, onupdate=func.now())
 
 
 class Catering(db.Model):
     catering_id = db.Column(db.Integer, primary_key = True)
     catering_bus_id = db.Column(db.Integer, ForeignKey(Business.business_id), unique = False, nullable = False, default = 1)
+    last_update = db.Column(DateTime(timezone=True), nullable=True, onupdate=func.now())
 
 
 class CateringService(db.Model):
@@ -86,3 +88,34 @@ class CateringService(db.Model):
     cs_servings = db.Column(db.Integer, unique = False, nullable = False)
     cs_type = db.Column(db.String(50), unique = True, nullable = True)
     cs_time = db.Column(db.Time, unique = False, nullable = False)
+    last_update = db.Column(DateTime(timezone=True), nullable=True, onupdate=func.now())
+
+
+class BookedEvents(db.Model):
+    be_id = db.Column(db.Integer, primary_key = True)
+    be_event_id = db.Column(db.Integer, ForeignKey(Event.event_id), unique = False, nullable = False)
+    be_venue_id = db.Column(db.Integer, ForeignKey(Venue.venue_id), unique = False, nullable = False)
+    last_update = db.Column(DateTime(timezone=True), nullable=True, onupdate=func.now())
+
+
+class BookedAttendees(db.Model):
+    ba_id = db.Column(db.Integer, primary_key = True)
+    ba_event_id = db.Column(db.Integer, ForeignKey(Event.event_id), unique = False, nullable = False)
+    ba_att_id = db.Column(db.Integer, ForeignKey(Attendee.att_id), unique = False, nullable = False)
+    ba_time = db.Column(db.Time, unique = False, nullable = False)
+    last_update = db.Column(DateTime(timezone=True), nullable=True, onupdate=func.now())
+
+
+class Stations(db.Model):
+    station_id = db.Column(db.Integer, primary_key = True)
+    station_venue_id = db.Column(db.Integer, ForeignKey(Venue.venue_id), unique = False, nullable = False)
+    station_speaker_id = db.Column(db.Integer, ForeignKey(Speaker.speaker_id), unique = False, nullable = False)
+    station_capacity = db.Column(db.Integer, unique = False, nullable = True)
+    last_update = db.Column(DateTime(timezone=True), nullable=True, onupdate=func.now())
+
+
+class StationTopics(db.Model):
+    st_id = db.Column(db.Integer, primary_key = True)
+    st_station_id = db.Column(db.Integer, ForeignKey(Stations.station_id), unique = False, nullable = False)
+    st_topic = db.Column(db.String(100), unique = True, nullable = False)
+    last_update = db.Column(DateTime(timezone=True), nullable=True, onupdate=func.now())

@@ -6,8 +6,8 @@ def get_attendees():
     all_attendees = Attendee.query.all()
     return attendees_schema.dump(all_attendees)
 
-def add_attendee(first_name, last_name):
-    a = Attendee(first_name=first_name, last_name=last_name, last_update=func.now())
+def add_attendee(att_name, att_email, org_id):
+    a = Attendee(att_name=att_name, att_email=att_email, org_id=org_id, last_update=func.now())
     db.session.add(a)
     db.session.commit()
 

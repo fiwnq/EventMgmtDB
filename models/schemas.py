@@ -80,6 +80,7 @@ class Catering(db.Model):
 
     catering_id = db.Column(db.Integer, primary_key = True)
     catering_bus_id = db.Column(db.Integer, ForeignKey(Business.business_id), unique = False, nullable = False, default = 1)
+    catering_type = db.Column(db.String(50), unique = False, nullable = False)
     last_update = db.Column(DateTime(timezone=True), nullable=True, onupdate=func.now())
 
 
@@ -89,17 +90,16 @@ class CateringService(db.Model):
     cs_catering_id = db.Column(db.Integer, ForeignKey(Catering.catering_id), unique = False, nullable = False)
     cs_event_id = db.Column(db.Integer, ForeignKey(Event.event_id), unique = False, nullable = False)
     cs_servings = db.Column(db.Integer, unique = False, nullable = False)
-    cs_type = db.Column(db.String(50), unique = True, nullable = True)
     cs_time = db.Column(db.Time, unique = False, nullable = False)
     last_update = db.Column(DateTime(timezone=True), nullable=True, onupdate=func.now())
 
 
 class Speaker(db.Model):
 
-    speaker_id = db.Column(db.Integer, primary_key=True)
-    speaker_name = db.Column(db.String(50), unique=True, nullable=False)
-    speaker_bio = db.Column(db.String(1000), unique=False, nullable=True)
-    speaker_info = db.Column(db.String(100), unique=False, nullable=True)
+    speaker_id = db.Column(db.Integer, primary_key = True)
+    speaker_name = db.Column(db.String(50), unique = True, nullable = False)
+    speaker_bio = db.Column(db.String(1000), unique = False, nullable = True)
+    speaker_info = db.Column(db.String(100), unique = False, nullable = True)
     last_update = db.Column(DateTime(timezone=True), nullable=True, onupdate=func.now())
 
 

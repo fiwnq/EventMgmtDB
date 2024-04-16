@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Venue</title>
+</head>
+<body>
+	<form action="/add_venue" method="POST">
+		<label>Venue Name</label>
+		<input type="text" name="venue_name" placeholder="venue name...">
+		<label>Venue Location</label>
+		<input type="text" name= "venue_location" placeholder="venue location...">
+        <label>Venue Capacity</label>
+		<input type="number" name= "venue_capacity" min="0">
+        <label>Venue Contact</label>
+        <input type="text" name="venue_contact" placeholder="venue contact...">
+		<button type="submit">Add</button>
+	</form>
+</body>
+</html>

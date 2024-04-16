@@ -1,10 +1,8 @@
 from core import app
 from flask import redirect, request 
 from flask.templating import render_template
-from models import Actor, ActorInfo, Attendee, BookedAttendee, BookedEvent, Business, Catering, CateringService, Event, Organization, Speaker, Station, StationTopic, Venue
+from models import Actor, Attendee, BookedAttendee, BookedEvent, Business, Catering, CateringService, Event, Organization, Speaker, Station, StationTopic, Venue
 
-# A decorator used to tell the application 
-# which URL is associated with which function 
 @app.route('/hello')	 
 def hello(): 
 	return 'HELLO'
@@ -13,7 +11,9 @@ def hello():
 def home():
 	return render_template('home.html')
 
-# APP ROUTE TO GET RESULTS FOR SELECT QUERY 
+# -------------------------- ACTORS --------------------------------
+
+# unused?
 @app.route('/get_actors', methods=['GET','POST']) 
 def get_results(): 
     actors = Actor.get_actors()  
@@ -58,6 +58,8 @@ def delete_actor(id):
 	Actor.delete_actor(id)
 	return redirect('/')
 
+# -------------------------- EVENTS --------------------------------
+
 @app.route('/add_event', methods=["POST"])
 def add_event():
 	
@@ -77,13 +79,45 @@ def event_index():
 	return render_template('event_index.html', events=events)
 
 @app.route('/add_event_data')
-def add_data():
+def add_event_data():
 	return render_template('add_event.html')
 
 @app.route('/delete_event/<int:id>')
 def delete_event(id):
 	Event.delete_event(id)
 	return redirect('/')
+
+# -------------------------- VENUES --------------------------------
+
+@app.route('/add_venue', methods=["POST"])
+def add_venue():
+	
+	venue_name = request.form.get("venue_name")
+	venue_location = request.form.get("venue_location")
+	venue_capacity = request.form.get("venue_capacity")
+	venue_contact = request.form.get("venue_contact")
+
+	if venue_name != '' and venue_location != '':
+		Venue.add_venue(venue_name, venue_location, venue_capacity, venue_contact)
+		return redirect('/')
+	else:
+		return redirect('/')
+
+@app.route('/venue_index')
+def venue_index():
+	venues = Venue.get_venues()
+	return render_template('venue_index.html', venues=venues)
+
+@app.route('/add_venue_data')
+def add_venue_data():
+	return render_template('add_venue.html')
+
+@app.route('/delete_venue/<int:id>')
+def delete_venue(id):
+	Venue.delete_venue(id)
+	return redirect('/')
+
+
 
 
 if __name__=='__main__': 

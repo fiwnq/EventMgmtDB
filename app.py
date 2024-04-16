@@ -49,11 +49,6 @@ def add_actor():
 		return redirect('/')
 	else:
 		return redirect('/')
-	
-# APP ROUTE TO CALL FUNCTION TO RETRIEVE AND RETURN ACTOR INFO
-@app.route('/actor_info')
-def get_actor_info():
-	return ActorInfo.get_actor_info()
 
 # APP ROUTE TO CALL FUNCTION TO DELETE ACTOR
 @app.route('/delete_actor/<int:id>')
@@ -75,6 +70,11 @@ def add_event():
 		return redirect('/')
 	else:
 		return redirect('/')
+	
+@app.route('/event_index')
+def event_index():
+	events = Event.get_events()
+	return render_template('event_index.html', events=events)
 
 @app.route('/add_event_data')
 def add_data():

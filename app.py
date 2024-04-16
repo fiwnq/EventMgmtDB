@@ -117,6 +117,33 @@ def delete_venue(id):
 	Venue.delete_venue(id)
 	return redirect('/')
 
+# -------------------------- ORGS --------------------------------
+
+@app.route('/add_org', methods=["POST"])
+def add_org():
+	
+	org_name = request.form.get("org_name")
+	org_desc = request.form.get("org_desc")
+	
+	if org_name != '':
+		Organization.add_org(org_name, org_desc)
+		return redirect('/')
+	else:
+		return redirect('/')
+
+@app.route('/org_index')
+def org_index():
+	orgs = Organization.get_orgs()
+	return render_template('org_index.html', orgs=orgs)
+
+@app.route('/add_org_data')
+def add_org_data():
+	return render_template('add_org.html')
+
+@app.route('/delete_org/<int:id>')
+def delete_org(id):
+	Organization.delete_org(id)
+	return redirect('/')
 
 
 

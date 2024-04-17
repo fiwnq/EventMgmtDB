@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Station</title>
+</head>
+<body>
+	<form action="/add_station" method="POST">
+        <label>Station Venue</label>
+        {% for data in venues %}
+        <select name="station_venue_id">
+            <option value="{{data.venue_id}}">{{data.venue_name}}</option>
+        {% endfor%}
+        <label>Station Speaker</label>
+        {% for data in speakers %}
+        <select name="station_speaker_id">
+            <option value="{{data.speaker_id}}">{{data.speaker_name}}</option>
+        {% endfor%}
+        <label>Station Topic</label>
+		<input type="text" name="station_topic" placeholder="station topic...">
+        <label>Station Capacity</label>
+		<input type="number" name="station_capacity" min="0">
+		<button type="submit">Add</button>
+	</form>
+</body>
+</html>

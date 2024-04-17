@@ -264,6 +264,36 @@ def delete_catering(id):
 	Catering.delete_catering(id)
 	return redirect('/')
 
+# -------------------------- STATIONS --------------------------------
+
+@app.route('/add_station', methods=["POST"])
+def add_station():
+	
+	station_venue_id = request.form.get("station_venue_id")
+	station_speaker_id = request.form.get("station_speaker_id")
+	station_topic = request.form.get("station_topic")
+	station_capacity = request.form.get("station_capacity")
+
+	if station_venue_id != '' and station_speaker_id != '' and station_topic != '':
+		Station.add_station(station_venue_id, station_speaker_id, station_topic, station_capacity)
+		return redirect('/')
+	else:
+		return redirect('/')
+
+@app.route('/station_index')
+def station_index():
+	stations = Station.get_stations()
+	return render_template('station_index.html', stations=stations)
+
+@app.route('/add_station_data')
+def add_station_data():
+	return render_template('add_station.html')
+
+@app.route('/delete_station/<int:id>')
+def delete_station(id):
+	Station.delete_station(id)
+	return redirect('/')
+
 
 if __name__=='__main__': 
     app.run(port=8000, debug=True) 

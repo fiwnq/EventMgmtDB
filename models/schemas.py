@@ -50,29 +50,22 @@ class Attendee(db.Model):
     last_update = db.Column(DateTime(timezone=True), nullable=True, onupdate=func.now())
 
 
+class Booking(db.Model):
+
+    book_id = db.Column(db.Integer, primary_key = True)
+    book_att_id = db.Column(db.Integer, ForeignKey(Attendee.att_id), unique = False, nullable = False)
+    book_event_id = db.Column(db.Integer, ForeignKey(Event.event_id), unique = False, nullable = False)
+    book_venue_id = db.Column(db.Integer, ForeignKey(Venue.venue_id), unique = False, nullable = False)
+    book_date = db.Column(db.Date, unique = False, nullable = False)
+    last_update = db.Column(DateTime(timezone=True), nullable=True, onupdate=func.now())
+
+
 class Business(db.Model):
 
     business_id = db.Column(db.Integer, primary_key = True)
     business_name = db.Column(db.String(50), unique = True, nullable = False)
     business_bio = db.Column(db.String(500), unique = True, nullable = True)
     business_contact = db.Column(db.String(100), unique = True, nullable = False)
-    last_update = db.Column(DateTime(timezone=True), nullable=True, onupdate=func.now())
-
-
-class BookedEvent(db.Model):
-
-    be_id = db.Column(db.Integer, primary_key = True)
-    be_event_id = db.Column(db.Integer, ForeignKey(Event.event_id), unique = False, nullable = False)
-    be_venue_id = db.Column(db.Integer, ForeignKey(Venue.venue_id), unique = False, nullable = False)
-    last_update = db.Column(DateTime(timezone=True), nullable=True, onupdate=func.now())
-
-
-class BookedAttendee(db.Model):
-
-    ba_id = db.Column(db.Integer, primary_key = True)
-    ba_event_id = db.Column(db.Integer, ForeignKey(Event.event_id), unique = False, nullable = False)
-    ba_att_id = db.Column(db.Integer, ForeignKey(Attendee.att_id), unique = False, nullable = False)
-    ba_time = db.Column(db.Time, unique = False, nullable = False)
     last_update = db.Column(DateTime(timezone=True), nullable=True, onupdate=func.now())
 
 

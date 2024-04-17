@@ -3,8 +3,8 @@ from flask import redirect, request
 from flask.templating import render_template
 from models import Actor, Attendee, BookedAttendee, BookedEvent, Business, Catering, CateringService, Event, Organization, Speaker, Station, StationTopic, Venue
 
-@app.route('/hello')	 
-def hello(): 
+@app.route('/hello')
+def hello():
 	return 'HELLO'
 
 @app.route('/')
@@ -145,9 +145,36 @@ def delete_org(id):
 	Organization.delete_org(id)
 	return redirect('/')
 
+# -------------------------- ATTENDEES --------------------------------
+
+@app.route('/add_att', methods=["POST"])
+def add_att():
+	
+	att_name = request.form.get("att_name")
+	att_email = request.form.get("att_email")
+	att_org_id = request.form.get("att_org_id")
+	
+	if att_name != '' and att_email != '' and att_org_id != '':
+		Attendee.add_att(att_name, att_email, att_org_id)
+		return redirect('/')
+	else:
+		return redirect('/')
+	
+@app.route('/att_index')
+def att_index():
+	atts = Attendee.get_atts()
+	return render_template('att_index.html', atts=atts)
+
+@app.route('/add_att_data')
+def add_att_data():
+	return render_template('add_att.html')
+
+@app.route('/delete_att/<int:id>')
+def delete_att(id):
+	Attendee.delete_att(id)
+	return redirect('/')
 
 
 if __name__=='__main__': 
     app.run(port=8000, debug=True) 
-
 

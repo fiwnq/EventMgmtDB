@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Attendee</title>
+</head>
+<body>
+	<form action="/add_att" method="POST">
+		<label>Attendee Name</label>
+		<input type="text" name="att_name" placeholder="attendee name...">
+		<label>Attendee Email</label>
+		<input type="text" name= "att_email" placeholder="attendee email...">
+        <label>Attendee Organization</label>
+        {% for data in organizations %}
+        <select name="att_org_id">
+            <option value="{{data.org_id}}">{{data.org_name}}</option>
+        {% endfor%}
+		<button type="submit">Add</button>
+	</form>
+</body>
+</html>

@@ -46,7 +46,7 @@ class Attendee(db.Model):
     att_id = db.Column(db.Integer, primary_key=True)
     att_name = db.Column(db.String(50), unique=True, nullable=False)
     att_email = db.Column(db.String(100), unique=False, nullable=True)
-    org_id = db.Column(db.Integer, ForeignKey(Organization.org_id), unique=False, nullable=True)
+    att_org_id = db.Column(db.Integer, ForeignKey(Organization.org_id), unique=False, nullable=True)
     last_update = db.Column(DateTime(timezone=True), nullable=True, onupdate=func.now())
 
 

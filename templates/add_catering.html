@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Catering</title>
+</head>
+<body>
+	<form action="/add_catering" method="POST">
+		<label>Catering Business</label>
+		<input type="text" name="catering_business" placeholder="catering business...">
+		<label>Catering Type</label>
+		<input type="text" name="catering_type" placeholder="catering type...">
+        <label>Catering Event</label>
+        {% for data in events %}
+        <select name="catering_event_id">
+            <option value="{{data.event_id}}">{{data.event_name}}</option>
+        {% endfor%}
+        <label>Catering Servings</label>
+		<input type="number" name="catering_servings">
+        <label>Catering Time</label>
+		<input type="time" name="catering_time">
+		<button type="submit">Add</button>
+	</form>
+</body>
+</html>

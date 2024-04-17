@@ -233,6 +233,36 @@ def delete_speaker(id):
 	Speaker.delete_speaker(id)
 	return redirect('/')
 
+# -------------------------- CATERING --------------------------------
+
+@app.route('/add_catering', methods=["POST"])
+def add_catering():
+	
+	catering_business = request.form.get("catering_business")
+	catering_type = request.form.get("catering_type")
+	catering_event_id = request.form.get("catering_event_id")
+	catering_servings = request.form.get("catering_servings")
+	catering_time = request.form.get("catering_time")
+
+	if catering_business != '' and catering_event_id != '':
+		Catering.add_catering(catering_business, catering_type, catering_event_id, catering_servings, catering_time)
+		return redirect('/')
+	else:
+		return redirect('/')
+
+@app.route('/catering_index')
+def catering_index():
+	caterings = Catering.get_caterings()
+	return render_template('catering_index.html', caterings=caterings)
+
+@app.route('/add_catering_data')
+def add_catering_data():
+	return render_template('add_catering.html')
+
+@app.route('/delete_catering/<int:id>')
+def delete_catering(id):
+	Catering.delete_catering(id)
+	return redirect('/')
 
 
 if __name__=='__main__': 

@@ -72,7 +72,7 @@ class Bookings(db.Model):
 class Catering(db.Model):
 
     catering_id = db.Column(db.Integer, primary_key = True)
-    catering_business = db.Column(db.String(100), unique = True, nullable = True)
+    catering_business = db.Column(db.String(100), unique = True, nullable = False)
     catering_type = db.Column(db.String(50), unique = False, nullable = True)
     catering_event_id = db.Column(db.Integer, ForeignKey(Events.event_id), unique = False, nullable = False)
     catering_servings = db.Column(db.Integer, unique = False, nullable = True)

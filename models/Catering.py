@@ -6,8 +6,8 @@ def get_caterings():
     all_caterings = Catering.query.all()
     return caterings_schema.dump(all_caterings)
 
-def add_catering(catering_bus_id):
-    c = Catering(catering_bus_id = catering_bus_id, last_update=func.now())
+def add_catering(catering_business, catering_type, catering_event_id, catering_servings, catering_time):
+    c = Catering(catering_business=catering_business, catering_type=catering_type, catering_event_id=catering_event_id, catering_servings=catering_servings, catering_time=catering_time, last_update=func.now())
     db.session.add(c)
     db.session.commit()
 

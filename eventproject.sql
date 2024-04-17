@@ -64,7 +64,7 @@ ON DELETE CASCADE
 
 CREATE TABLE Catering(
 catering_id INT UNSIGNED AUTO_INCREMENT,
-catering_business VARCHAR(100) UNIQUE,
+catering_business VARCHAR(100) UNIQUE NOT NULL,
 catering_type VARCHAR(50),
 catering_event_id INT UNSIGNED NOT NULL,
 catering_servings INT UNSIGNED,

@@ -60,19 +60,10 @@ class Booking(db.Model):
     last_update = db.Column(DateTime(timezone=True), nullable=True, onupdate=func.now())
 
 
-class Business(db.Model):
-
-    business_id = db.Column(db.Integer, primary_key = True)
-    business_name = db.Column(db.String(50), unique = True, nullable = False)
-    business_bio = db.Column(db.String(500), unique = True, nullable = True)
-    business_contact = db.Column(db.String(100), unique = True, nullable = False)
-    last_update = db.Column(DateTime(timezone=True), nullable=True, onupdate=func.now())
-
-
 class Catering(db.Model):
 
     catering_id = db.Column(db.Integer, primary_key = True)
-    catering_bus_id = db.Column(db.Integer, ForeignKey(Business.business_id), unique = False, nullable = False, default = 1)
+    catering_business = db.Column(db.String(100), unique = True, nullable = False)
     catering_type = db.Column(db.String(50), unique = False, nullable = False)
     last_update = db.Column(DateTime(timezone=True), nullable=True, onupdate=func.now())
 

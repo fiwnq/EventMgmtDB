@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS Organizations, Business, Attendees, Venues, Events, Speakers, 
-	Catering, Stations, StationTopics, BookedEvents;
+DROP TABLE IF EXISTS Organizations, Attendees, Venues, Events, Speakers, 
+	Catering, Stations, StationTopics, Bookings;
 
 CREATE TABLE Speakers(
 ID INT UNSIGNED AUTO_INCREMENT,
@@ -26,15 +26,6 @@ ContactInfo VARCHAR(100),
 PRIMARY KEY(ID)
 );
 
--- ALTERED
-CREATE TABLE Business(
-ID INT UNSIGNED AUTO_INCREMENT,
-Name VARCHAR(50) NOT NULL,
-Bio VARCHAR(500),
-ContactInfo VARCHAR(100),
-PRIMARY KEY (ID)
-);
-
 -- ALTERED 
 CREATE TABLE Organizations(
 ID INT UNSIGNED AUTO_INCREMENT,
@@ -55,7 +46,7 @@ ON UPDATE CASCADE
 ON DELETE SET NULL
 );
 
-CREATE TABLE BookedEvents(
+CREATE TABLE Bookings(
 ID INT UNSIGNED AUTO_INCREMENT,
 AttendeeID INT UNSIGNED,
 EventID INT UNSIGNED,
@@ -76,11 +67,8 @@ ON DELETE CASCADE
 -- ALTERED
 CREATE TABLE Catering(
 ID INT UNSIGNED AUTO_INCREMENT,
-BusinessID INT UNSIGNED DEFAULT 1,
-CateringType VARCHAR(50),
-FOREIGN KEY (BusinessID) REFERENCES Business(ID)
-ON UPDATE CASCADE
-ON DELETE SET NULL
+Business VARCHAR(100) UNIQUE,
+Type VARCHAR(50)
 );
 
 CREATE TABLE CateringService(

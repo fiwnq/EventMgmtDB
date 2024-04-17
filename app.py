@@ -1,7 +1,7 @@
 from core import app
 from flask import redirect, request 
 from flask.templating import render_template
-from models import Actor, Attendee, BookedAttendee, BookedEvent, Business, Catering, CateringService, Event, Organization, Speaker, Station, StationTopic, Venue
+from models import Actor, Attendee, Booking, Catering, CateringService, Event, Organization, Speaker, Station, StationTopic, Venue
 
 @app.route('/hello')
 def hello():

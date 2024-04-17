@@ -174,6 +174,36 @@ def delete_att(id):
 	Attendee.delete_att(id)
 	return redirect('/')
 
+# -------------------------- BOOKINGS --------------------------------
+
+@app.route('/add_book', methods=["POST"])
+def add_book():
+	
+	book_att_id = request.form.get("book_att_id")
+	book_event_id = request.form.get("book_event_id")
+	book_venue_id = request.form.get("book_venue_id")
+	book_date = request.form.get("book_date")
+
+	if book_att_id != '' and book_event_id != '' and book_venue_id != '' and book_date != '':
+		Booking.add_book(book_att_id, book_event_id, book_venue_id, book_date)
+		return redirect('/')
+	else:
+		return redirect('/')
+
+@app.route('/book_index')
+def book_index():
+	books = Booking.get_books()
+	return render_template('book_index.html', books=books)
+
+@app.route('/add_book_data')
+def add_book_data():
+	return render_template('add_book.html')
+
+@app.route('/delete_book/<int:id>')
+def delete_book(id):
+	Booking.delete_book(id)
+	return redirect('/')
+
 
 if __name__=='__main__': 
     app.run(port=8000, debug=True) 

@@ -1,0 +1,31 @@
+<html>
+<head>
+	<title>Organizations</title>
+</head>
+<body>
+	<a href="/add_book_data">ADD</a>
+      <br>
+      <table style="border-spacing: 30px;">
+         <thead style="padding:15px">
+            <th>ID</th>
+            <th>Booked Attendee ID</th>
+            <th>Booked Event ID</th>
+            <th>Booked Venue ID</th>
+            <th>Registration Date</th>
+            <th>Last Update</th>
+            <th>#</th>
+         </thead>
+         {% for data in bookings %}
+         <tbody style="padding-right:15px">
+            <td>{{data.book_id}}</td>
+            <td>{{data.book_att_id}}</td>
+            <td>{{data.book_event_id}}</td>
+            <td>{{data.book_venue_id}}</td>
+            <td>{{data.book_date}}</td>
+            <td>{{data.last_update}}</td>
+            <td><a href="/delete_book/{{data.book_id}}" type="button">Delete</a></td>
+         </tbody>
+         {% endfor%}
+      </table>
+</body>
+</html>

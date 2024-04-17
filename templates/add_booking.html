@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Booking</title>
+</head>
+<body>
+	<form action="/add_book" method="POST">
+        <label>Booked Attendee</label>
+        {% for data in attendees %}
+        <select name="book_att_id">
+            <option value="{{data.att_id}}">{{data.att_name}}</option>
+        {% endfor%}
+		<label>Booked Event</label>
+        {% for data in events %}
+        <select name="book_event_id">
+            <option value="{{data.event_id}}">{{data.event_name}}</option>
+        {% endfor%}
+        <label>Booked Venue</label>
+        {% for data in venues %}
+        <select name="book_venue_id">
+            <option value="{{data.venue_id}}">{{data.venue_name}}</option>
+        {% endfor%}
+        <label>Registration Date</label>
+		<input type="date" name="book_date">
+		<button type="submit">Add</button>
+	</form>
+</body>
+</html>

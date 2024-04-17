@@ -204,6 +204,36 @@ def delete_book(id):
 	Booking.delete_book(id)
 	return redirect('/')
 
+# -------------------------- SPEAKERS --------------------------------
+
+@app.route('/add_speaker', methods=["POST"])
+def add_speaker():
+	
+	speaker_name = request.form.get("speaker_name")
+	speaker_bio = request.form.get("speaker_bio")
+	speaker_info = request.form.get("speaker_info")
+
+	if speaker_name != '':
+		Speaker.add_speaker(speaker_name, speaker_bio, speaker_info)
+		return redirect('/')
+	else:
+		return redirect('/')
+	
+@app.route('/speaker_index')
+def speaker_index():
+	speakers = Speaker.get_speakers()
+	return render_template('speaker_index.html', speakers=speakers)
+
+@app.route('/add_speaker_data')
+def add_speaker_data():
+	return render_template('add_speaker.html')
+
+@app.route('/delete_speaker/<int:id>')
+def delete_speaker(id):
+	Speaker.delete_speaker(id)
+	return redirect('/')
+
+
 
 if __name__=='__main__': 
     app.run(port=8000, debug=True) 

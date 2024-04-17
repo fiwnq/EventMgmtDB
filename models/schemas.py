@@ -92,13 +92,6 @@ class Station(db.Model):
     station_id = db.Column(db.Integer, primary_key = True)
     station_venue_id = db.Column(db.Integer, ForeignKey(Venue.venue_id), unique = False, nullable = False)
     station_speaker_id = db.Column(db.Integer, ForeignKey(Speaker.speaker_id), unique = False, nullable = False)
+    station_topic = db.Column(db.String(100), unique = True, nullable = False)
     station_capacity = db.Column(db.Integer, unique = False, nullable = True)
-    last_update = db.Column(DateTime(timezone=True), nullable=True, onupdate=func.now())
-
-
-class StationTopic(db.Model):
-    
-    st_id = db.Column(db.Integer, primary_key = True)
-    st_station_id = db.Column(db.Integer, ForeignKey(Station.station_id), unique = False, nullable = False)
-    st_topic = db.Column(db.String(100), unique = True, nullable = False)
     last_update = db.Column(DateTime(timezone=True), nullable=True, onupdate=func.now())

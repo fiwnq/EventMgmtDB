@@ -6,8 +6,8 @@ def get_stations():
     all_stations = Station.query.all()
     return stations_schema.dump(all_stations)
 
-def add_station(station_venue_id, station_speaker_id, station_capacity):
-    a = Station(station_venue_id=station_venue_id, station_speaker_id=station_speaker_id, station_capacity=station_capacity, last_update=func.now())
+def add_station(station_venue_id, station_speaker_id, station_topic, station_capacity):
+    a = Station(station_venue_id=station_venue_id, station_speaker_id=station_speaker_id, station_topic=station_topic, station_capacity=station_capacity, last_update=func.now())
     db.session.add(a)
     db.session.commit()
 

@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS Organizations, Attendees, Venues, Events, Speakers, 
+DROP TABLE IF EXISTS Organizations, Attendees, Venues, Events, speakers, 
 	Catering, Stations, Bookings;
 
 CREATE TABLE Speakers(
@@ -72,7 +72,7 @@ catering_time TIME,
 PRIMARY KEY (catering_id),
 FOREIGN KEY (catering_event_id) REFERENCES Events(event_id)
 ON UPDATE CASCADE
-ON DELETE CASCADE,
+ON DELETE CASCADE
 );
 
 CREATE TABLE Stations(

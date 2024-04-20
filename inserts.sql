@@ -1,56 +1,34 @@
-INSERT INTO Events (Title, DateTime, Description)
+INSERT INTO Events (event_name, event_datetime, event_desc)
 VALUES ('Lipscomb TED Talks', '2024-02-13', 'Ted Talk Event'),
 	('Importance of Motivational Quotes', '2024-07-07', 'A comprehensive talk from a life coach on his experience with motivational quotes affecting both his life and the lives of many others.'),
 	('Cybersecurity Showcase', '2024-11-27', 'A knowledgeable IT professor will showcase popular hacking attack and how you can be safe on the internet.');
 
-INSERT INTO Speakers(Name, Bio, ContactInfo)
+INSERT INTO Speakers(speaker_name, speaker_bio, speaker_info)
 VALUES ('Kevin Hart', 'Comedian', 'email:kevinhart123@gmail.com phone: 345237654'),
 	('Christina Wallace','Writer and entrprenuer', 'email:cwallace345@gmail.com phone: 49503958309'),
     ('Steve Nordstorm', 'Cybersecurity Professional' , 'email:snordy01@gmail.com phone:4569392049');
 
-INSERT INTO Venues(Name, Location, Capacity, ContactInfo)
+INSERT INTO Venues(venue_name, venue_location, venue_capacity, ventue_contact)
 VALUES ('Shinn Center', 'Lipscomb University', 600, 'email: lippy@gmail.com phone: 459394030'),
 	('Swang Business Center','Lipscomb University', 200,'email: swangy@gmail.com phone: 39402034593'),
     ('Field Engineering Building','Lipscomb University', 100, 'email: fieldy@gmail.com phone: 39483840930');
 
-INSERT INTO Business(Name, Bio, ContactInfo)
-VALUES ('Chickfila', 'fast food restaurant', 'email: chickyfila@gmail.com'),
-	('Fruitsies and Snacksies','Small snack catering',' phone: 3459238457'),
-	('Canes','fast food restaurant','email: canie@gmail.com');
-
-INSERT INTO Organizations(Name, Description) 
+INSERT INTO Organizations(org_name, org_desc) 
 VALUES ('Student Activities Board', 'Organization on Lipscomb Universitys Campus.'),
 	('Society of Women Engineers','Promotes women in the engineering field.');
 
-INSERT INTO Attendees(Name, Email, OrganizationID)
+INSERT INTO Attendees(att_ame, att_email, att_org_id)
 VALUES ('Lindsey Born', 'lborn@gmail.com', 2 ),
 	('Ben Turner', 'imturner@gmail.com', 1 ),
     ('Fernandez Mario', 'Fernny@gmail.com', 1);
 
-INSERT INTO Stations(VenueID, SpeakerID, Capacity)
+INSERT INTO Stations(station_venue_id, station_speaker_id, station_capacity)
 VALUES(1, 1, 200), (1, 2, 200), (1, 3, 200);
 
-INSERT INTO StationTopics(StationID, Topic)
-VALUES (1, 'Lifestyles'),
-	(1, 'How to create your own small business'),
-	(1, 'memory-safe programming languages');
-
-INSERT INTO Catering(BusinessID)
-VALUES (1),
-	(2),
-	(3);
-
-INSERT INTO CateringService(CateringID, EventID, Servings, CateringType, Time)
-VALUES (1, 1, 100, 'Lunch', '12:00 PM'),
-(2, 4, 200, 'Breakfast', '8:00 AM'),
-(3, 2, 350, 'Snacks', '2:00 PM');
-
-INSERT INTO BookedEvents(EventID, VenueID)
-VALUES (1, 2),
-	(2, 2),
-    (3, 1);
-
-INSERT INTO BookedAttendees(EventID, AttendeeID, RegistrationDate)
-VALUES (1, 1, '2023-12-25'),
-	(1, 2, '2024-01-15'),
-    (1, 3, '2024-02-01');
+INSERT INTO Catering(catering_business, catering_type, catering_event_id, catering_servings, catering_time)
+VALUES ( 'Canes', 'Lunch', 1, 150, '12:00'),
+	('Dumpling House', 'Lunch', 100, '12:00'),
+	('Taco Mama', 'Dinner', 100, '5:30');
+    
+INSERT INTO Bookings(book_att_id, book_event_id, book_venue_id, book_date)
+VALUES (1, 2, 1, '2024-02-03'), (2, 2, 1, '2024-02-20'), (3, 1, 1, '2024-01-03');

@@ -12,7 +12,7 @@
             <th>Venue Location</th>
             <th>Venue Capacity</th>
             <th>Venue Contact</th>
-            <th>Last Update</th>
+            <!-- <th>Last Update</th> -->
             <th>#</th>
          </thead>
          {% for data in venues %}
@@ -22,7 +22,7 @@
             <td>{{data.venue_location}}</td>
             <td>{{data.venue_capacity}}</td>
             <td>{{data.venue_contact}}</td>
-            <td>{{data.last_update}}</td>
+            <!-- <td>{{data.last_update}}</td> -->
             <td><a href="/delete_venue/{{data.venue_id}}" type="button">Delete</a></td>
          </tbody>
          {% endfor%}

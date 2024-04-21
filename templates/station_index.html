@@ -12,7 +12,7 @@
             <th>Station Speaker ID</th>
             <th>Station Topic</th>
             <th>Station Capacity</th>
-            <th>Last Update</th>
+            <!-- <th>Last Update</th> -->
             <th>#</th>
          </thead>
          {% for data in stations %}
@@ -22,7 +22,7 @@
             <td>{{data.station_speaker_id}}</td>
             <td>{{data.station_topic}}</td>
             <td>{{data.station_capacity}}</td>
-            <td>{{data.last_update}}</td>
+            <!-- <td>{{data.last_update}}</td> -->
             <td><a href="/delete_station/{{data.station_id}}" type="button">Delete</a></td>
          </tbody>
          {% endfor%}

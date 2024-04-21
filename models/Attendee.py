@@ -7,7 +7,7 @@ def get_atts():
     return attendees_schema.dump(all_attendees)
 
 def add_att(att_name, att_email, att_org_id):
-    a = Attendees(att_name=att_name, att_email=att_email, att_org_id=att_org_id, last_update=func.now())
+    a = Attendees(att_name=att_name, att_email=att_email, att_org_id=att_org_id)
     db.session.add(a)
     db.session.commit()
 

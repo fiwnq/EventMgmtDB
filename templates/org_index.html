@@ -10,7 +10,7 @@
             <th>ID</th>
             <th>Organization Name</th>
             <th>Organization Description</th>
-            <th>Last Update</th>
+            <!-- <th>Last Update</th> -->
             <th>#</th>
          </thead>
          {% for data in organizations %}
@@ -18,7 +18,7 @@
             <td>{{data.org_id}}</td>
             <td>{{data.org_name}}</td>
             <td>{{data.org_desc}}</td>
-            <td>{{data.last_update}}</td>
+            <!-- <td>{{data.last_update}}</td> -->
             <td><a href="/delete_org/{{data.org_id}}" type="button">Delete</a></td>
          </tbody>
          {% endfor%}

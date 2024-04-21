@@ -13,7 +13,7 @@
             <th>Catering Event ID</th>
             <th>Catering Servings</th>
             <th>Catering Time</th>
-            <th>Last Update</th>
+            <!-- <th>Last Update</th> -->
             <th>#</th>
          </thead>
          {% for data in catering %}
@@ -24,7 +24,7 @@
             <td>{{data.catering_event_id}}</td>
             <td>{{data.catering_servings}}</td>
             <td>{{data.catering_time}}</td>
-            <td>{{data.last_update}}</td>
+            <!-- <td>{{data.last_update}}</td> -->
             <td><a href="/delete_catering/{{data.catering_id}}" type="button">Delete</a></td>
          </tbody>
          {% endfor%}

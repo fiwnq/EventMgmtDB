@@ -7,7 +7,7 @@ def get_books():
     return bookings_schema.dump(all_bookings)
 
 def add_book(book_att_id, book_event_id, book_venue_id, book_date):
-    a = Bookings(book_att_id=book_att_id, book_event_id=book_event_id, book_venue_id=book_venue_id, book_date=book_date, last_update=func.now())
+    a = Bookings(book_att_id=book_att_id, book_event_id=book_event_id, book_venue_id=book_venue_id, book_date=book_date)
     db.session.add(a)
     db.session.commit()
 

@@ -7,7 +7,7 @@ def get_events():
     return events_schema.dump(all_events)
 
 def add_event(event_title, event_datetime, event_desc):
-    e = Events(event_title = event_title, date_time = event_datetime, event_desc = event_desc, last_update = func.now())
+    e = Events(event_title = event_title, date_time = event_datetime, event_desc = event_desc)
     db.session.add(e)
     db.session.commit()
 

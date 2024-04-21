@@ -11,7 +11,7 @@
             <th>Attendee Name</th>
             <th>Attendee Email</th>
             <th>Attendee Organization ID</th>
-            <th>Last Update</th>
+            <!-- <th>Last Update</th> -->
             <th>#</th>
          </thead>
          {% for data in attendees %}
@@ -20,7 +20,7 @@
             <td>{{data.att_name}}</td>
             <td>{{data.att_email}}</td>
             <td>{{data.att_org_id}}</td>
-            <td>{{data.last_update}}</td>
+            <!-- <td>{{data.last_update}}</td> -->
             <td><a href="/delete_att/{{data.att_id}}" type="button">Delete</a></td>
          </tbody>
          {% endfor%}

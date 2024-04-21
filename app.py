@@ -163,11 +163,11 @@ def add_att():
 @app.route('/att_index')
 def att_index():
 	atts = Attendee.get_atts()
-	return render_template('att_index.html', atts=atts)
+	return render_template('attendee_index.html', atts=atts)
 
 @app.route('/add_att_data')
 def add_att_data():
-	return render_template('add_att.html')
+	return render_template('add_attendee.html')
 
 @app.route('/delete_att/<int:id>')
 def delete_att(id):
@@ -193,7 +193,7 @@ def add_book():
 @app.route('/book_index')
 def book_index():
 	books = Booking.get_books()
-	return render_template('book_index.html', books=books)
+	return render_template('booking_index.html', books=books)
 
 @app.route('/add_book_data')
 def add_book_data():

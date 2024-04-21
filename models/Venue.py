@@ -7,7 +7,7 @@ def get_venues():
     return venues_schema.dump(all_venues)
 
 def add_venue(venue_name, venue_location, venue_capacity, venue_contact):
-    v = Venues(venue_name = venue_name, venue_location = venue_location, venue_capacity = venue_capacity, venue_contact = venue_contact, last_update=func.now())
+    v = Venues(venue_name = venue_name, venue_location = venue_location, venue_capacity = venue_capacity, venue_contact = venue_contact)
     db.session.add(v)
     db.session.commit()
 

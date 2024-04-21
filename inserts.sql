@@ -8,7 +8,7 @@ VALUES ('Kevin Hart', 'Comedian', 'email:kevinhart123@gmail.com phone: 345237654
 	('Christina Wallace','Writer and entrprenuer', 'email:cwallace345@gmail.com phone: 49503958309'),
     ('Steve Nordstorm', 'Cybersecurity Professional' , 'email:snordy01@gmail.com phone:4569392049');
 
-INSERT INTO Venues(venue_name, venue_location, venue_capacity, ventue_contact)
+INSERT INTO Venues(venue_name, venue_location, venue_capacity, venue_contact)
 VALUES ('Shinn Center', 'Lipscomb University', 600, 'email: lippy@gmail.com phone: 459394030'),
 	('Swang Business Center','Lipscomb University', 200,'email: swangy@gmail.com phone: 39402034593'),
     ('Field Engineering Building','Lipscomb University', 100, 'email: fieldy@gmail.com phone: 39483840930');
@@ -17,13 +17,13 @@ INSERT INTO Organizations(org_name, org_desc)
 VALUES ('Student Activities Board', 'Organization on Lipscomb Universitys Campus.'),
 	('Society of Women Engineers','Promotes women in the engineering field.');
 
-INSERT INTO Attendees(att_ame, att_email, att_org_id)
+INSERT INTO Attendees(att_name, att_email, att_org_id)
 VALUES ('Lindsey Born', 'lborn@gmail.com', 2 ),
 	('Ben Turner', 'imturner@gmail.com', 1 ),
     ('Fernandez Mario', 'Fernny@gmail.com', 1);
 
-INSERT INTO Stations(station_venue_id, station_speaker_id, station_capacity)
-VALUES(1, 1, 200), (1, 2, 200), (1, 3, 200);
+INSERT INTO Stations(station_venue_id, station_speaker_id, station_topic, station_capacity)
+VALUES(1, 1, 'Sports', 200), (1, 2, 'Motivational Words', 200), (1, 3, 'Lipscomb Mission Trips', 200);
 
 INSERT INTO Catering(catering_business, catering_type, catering_event_id, catering_servings, catering_time)
 VALUES ( 'Canes', 'Lunch', 1, 150, '12:00'),

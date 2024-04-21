@@ -7,7 +7,7 @@ def get_orgs():
     return orgs_schema.dump(all_orgs)
 
 def add_org(org_name, org_desc):
-    a = Organizations(org_name=org_name, org_desc=org_desc, last_update=func.now())
+    a = Organizations(org_name=org_name, org_desc=org_desc)
     db.session.add(a)
     db.session.commit()
 

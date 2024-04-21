@@ -6,8 +6,8 @@ def get_speakers():
     all_speakers = Speakers.query.all()
     return speakers_schema.dump(all_speakers)
 
-def add_speaker(first_name, last_name):
-    a = Speakers(first_name=first_name, last_name=last_name, last_update=func.now())
+def add_speaker(speaker_name, speaker_bio, speaker_info):
+    a = Speakers(speaker_name=speaker_name, speaker_bio=speaker_bio, speaker_info=speaker_info, last_update=func.now())
     db.session.add(a)
     db.session.commit()
 

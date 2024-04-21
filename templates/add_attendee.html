@@ -10,10 +10,10 @@
 		<label>Attendee Email</label>
 		<input type="text" name="att_email" placeholder="attendee email...">
         <label>Attendee Organization</label>
-        {% for data in organizations %}
         <select name="att_org_id">
+			{% for data in organizations %}
             <option value="{{data.org_id}}">{{data.org_name}}</option>
-        {% endfor%}
+        	{% endfor %}
 		<button type="submit">Add</button>
 	</form>
 </body>

@@ -10,10 +10,10 @@
 		<label>Catering Type</label>
 		<input type="text" name="catering_type" placeholder="catering type...">
         <label>Catering Event</label>
-        {% for data in events %}
         <select name="catering_event_id">
+			{% for data in events %}
             <option value="{{data.event_id}}">{{data.event_name}}</option>
-        {% endfor%}
+        	{% endfor %}
         <label>Catering Servings</label>
 		<input type="number" name="catering_servings">
         <label>Catering Time</label>

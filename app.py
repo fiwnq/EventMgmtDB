@@ -197,7 +197,7 @@ def book_index():
 
 @app.route('/add_book_data')
 def add_book_data():
-	return render_template('add_book.html')
+	return render_template('add_booking.html')
 
 @app.route('/delete_book/<int:id>')
 def delete_book(id):

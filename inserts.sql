@@ -27,8 +27,8 @@ VALUES(1, 1, 'Sports', 200), (1, 2, 'Motivational Words', 200), (1, 3, 'Lipscomb
 
 INSERT INTO Catering(catering_business, catering_type, catering_event_id, catering_servings, catering_time)
 VALUES ( 'Canes', 'Lunch', 1, 150, '12:00'),
-	('Dumpling House', 'Lunch', 100, '12:00'),
-	('Taco Mama', 'Dinner', 100, '5:30');
+	('Dumpling House', 'Lunch', 2, 100, '12:00'),
+	('Taco Mama', 'Dinner', 3, 100, '5:30');
     
 INSERT INTO Bookings(book_att_id, book_event_id, book_venue_id, book_date)
 VALUES (1, 2, 1, '2024-02-03'), (2, 2, 1, '2024-02-20'), (3, 1, 1, '2024-01-03');

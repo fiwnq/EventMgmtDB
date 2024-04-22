@@ -12,7 +12,7 @@
             {% endfor %}
 		<label>Booked Event</label>
         <select name="book_event_id">
-            {% for data in events %} 
+            {% for data in events %}
             <option value="{{data.event_id}}">{{data.event_name}}</option>
             {% endfor %}
         <label>Booked Venue</label>

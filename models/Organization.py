@@ -1,4 +1,3 @@
-from sqlalchemy import func
 from models.schemas import Organizations
 from core import ma, db
 
@@ -12,8 +11,6 @@ def add_org(org_name, org_desc):
     db.session.commit()
 
 def delete_org(id):
-	# Deletes the data on the basis of unique id and 
-	# redirects to home page
 	data = Organizations.query.get(id)
 	db.session.delete(data)
 	db.session.commit()

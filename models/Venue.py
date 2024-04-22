@@ -1,4 +1,3 @@
-from sqlalchemy import func
 from models.schemas import Venues
 from core import ma, db
 

@@ -1,4 +1,3 @@
-from sqlalchemy import func
 from models.schemas import Bookings
 from core import ma, db
 
@@ -12,8 +11,6 @@ def add_book(book_att_id, book_event_id, book_venue_id, book_date):
     db.session.commit()
 
 def delete_book(id):
-	# Deletes the data on the basis of unique id and 
-	# redirects to home page
 	data = Bookings.query.get(id)
 	db.session.delete(data)
 	db.session.commit()
@@ -21,6 +18,7 @@ def delete_book(id):
 class BookingSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
         model = Bookings
+        include_fk = True
 
 booking_schema = BookingSchema()
 bookings_schema = BookingSchema(many=True)

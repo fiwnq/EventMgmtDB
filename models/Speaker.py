@@ -1,4 +1,3 @@
-from sqlalchemy import func
 from models.schemas import Speakers
 from core import ma, db
 

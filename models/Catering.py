@@ -1,4 +1,3 @@
-from sqlalchemy import func
 from models.schemas import Catering
 from core import ma, db
 
@@ -19,6 +18,7 @@ def delete_catering(id):
 class CateringSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
         model = Catering
+        include_fk = True
 
 catering_schema = CateringSchema()
 caterings_schema = CateringSchema(many=True)

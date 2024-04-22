@@ -21,6 +21,7 @@ def delete_station(id):
 class StationSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
         model = Stations
+        include_fk = True
 
 station_schema = StationSchema()
 stations_schema = StationSchema(many=True)

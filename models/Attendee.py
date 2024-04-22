@@ -1,4 +1,3 @@
-from sqlalchemy import func
 from models.schemas import Attendees
 from core import ma, db
 
@@ -12,8 +11,6 @@ def add_att(att_name, att_email, att_org_id):
     db.session.commit()
 
 def delete_att(id):
-	# Deletes the data on the basis of unique id and 
-	# redirects to home page
 	data = Attendees.query.get(id)
 	db.session.delete(data)
 	db.session.commit()
@@ -21,6 +18,7 @@ def delete_att(id):
 class AttendeeSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
         model = Attendees
+        include_fk = True
 
 attendee_schema = AttendeeSchema()
 attendees_schema = AttendeeSchema(many=True)

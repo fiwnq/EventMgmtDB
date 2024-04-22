@@ -28,17 +28,17 @@ class Venues(db.Model):
 
 class Organizations(db.Model):
 
-    org_id = db.Column(db.Integer, primary_key=True)
-    org_name = db.Column(db.String(50), unique=True, nullable=False)
-    org_desc = db.Column(db.String(300), unique=False, nullable=True)
+    org_id = db.Column(db.Integer, primary_key = True)
+    org_name = db.Column(db.String(50), unique = True, nullable = False)
+    org_desc = db.Column(db.String(300), unique = False, nullable = True)
 
 
 class Attendees(db.Model):
 
-    att_id = db.Column(db.Integer, primary_key=True)
-    att_name = db.Column(db.String(50), unique=True, nullable=False)
-    att_email = db.Column(db.String(100), unique=False, nullable=True)
-    att_org_id = db.Column(db.Integer, ForeignKey(Organizations.org_id), unique=False, nullable=True)
+    att_id = db.Column(db.Integer, primary_key = True)
+    att_name = db.Column(db.String(50), unique = True, nullable = False)
+    att_email = db.Column(db.String(100), unique = False, nullable = True)
+    att_org_id = db.Column(db.Integer, ForeignKey(Organizations.org_id), unique = False, nullable = True)
 
 
 class Bookings(db.Model):

@@ -11,16 +11,21 @@ JOIN Events e ON b.book_event_id = e.event_id
 WHERE a.att_org_id = 2 AND e.event_id = 1;
 
 -- 3. What is the average amount of stations that an event has?
--- SELECT AVG(StationCount) AS AverageStations
--- FROM (
---     SELECT COUNT(*) AS StationCount
---     FROM Stations
---     GROUP BY VenueID
--- ) AS StationCounts;
+SELECT AVG(StationCount) AS AverageStations
+FROM (
+	SELECT COUNT(*) AS StationCount
+	FROM Stations
+    GROUP BY station_venue_id
+) AS StationCounts;
 
--- 4. How many times has a business catered to an event?
--- SELECT b.Name AS BusinessName, COUNT(*) AS CateringCount
--- FROM Business b
--- JOIN Catering c ON b.ID = c.BusinessID
--- JOIN CateringService cs ON c.ID = cs.CateringID
--- GROUP BY b.Name;
+-- 4. How many events use catering?
+SELECT COUNT(*) AS Total
+FROM Events
+JOIN Catering ON Events.event_id = Catering.catering_event_id;
+
+-- 5. How many events were made in the year 2024?
+SELECT COUNT(*) AS EventCount
+FROM Events
+WHERE Events.event_datetime > '2023-12-31' AND Events.event_datetime < '2025-01-01';
+
+

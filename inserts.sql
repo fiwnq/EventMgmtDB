@@ -23,7 +23,9 @@ VALUES ('Lindsey Born', 'lborn@gmail.com', 2 ),
     ('Fernandez Mario', 'Fernny@gmail.com', 1);
 
 INSERT INTO Stations(station_venue_id, station_speaker_id, station_topic, station_capacity)
-VALUES(1, 1, 'Sports', 200), (1, 2, 'Motivational Words', 200), (1, 3, 'Lipscomb Mission Trips', 200);
+VALUES(1, 1, 'Sports', 200),
+	 (1, 2, 'Motivational Words', 200),
+	 (1, 3, 'Lipscomb Mission Trips', 200);
 
 INSERT INTO Catering(catering_business, catering_type, catering_event_id, catering_servings, catering_time)
 VALUES ( 'Canes', 'Lunch', 1, 150, '12:00'),
@@ -31,4 +33,6 @@ VALUES ( 'Canes', 'Lunch', 1, 150, '12:00'),
 	('Taco Mama', 'Dinner', 3, 100, '5:30');
     
 INSERT INTO Bookings(book_att_id, book_event_id, book_venue_id, book_date)
-VALUES (1, 2, 1, '2024-02-03'), (2, 2, 1, '2024-02-20'), (3, 1, 1, '2024-01-03');
+VALUES (1, 2, 1, '2024-02-03'), 
+	(2, 2, 1, '2024-02-20'), 
+	(3, 1, 1, '2024-01-03');

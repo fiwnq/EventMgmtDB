@@ -10,11 +10,13 @@
             {% for data in venues %}
             <option value="{{data.venue_id}}">{{data.venue_name}}</option>
             {% endfor %}
+        </select>
         <label>Station Speaker</label>
         <select name="station_speaker_id">
             {% for data in speakers %}
             <option value="{{data.speaker_id}}">{{data.speaker_name}}</option>
             {% endfor %}
+        </select>
         <label>Station Topic</label>
 		<input type="text" name="station_topic" placeholder="station topic...">
         <label>Station Capacity</label>

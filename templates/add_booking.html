@@ -10,16 +10,19 @@
             {% for data in attendees %}
             <option value="{{data.att_id}}">{{data.att_name}}</option>
             {% endfor %}
+        </select>
 		<label>Booked Event</label>
         <select name="book_event_id">
             {% for data in events %}
             <option value="{{data.event_id}}">{{data.event_name}}</option>
             {% endfor %}
+        </select>
         <label>Booked Venue</label>
         <select name="book_venue_id">
             {% for data in venues %}
             <option value="{{data.venue_id}}">{{data.venue_name}}</option>
             {% endfor %}
+        </select>
         <label>Registration Date</label>
 		<input type="date" name="book_date">
 		<button type="submit">Add</button>

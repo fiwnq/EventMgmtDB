@@ -38,7 +38,7 @@ def add_event_data():
 @app.route('/delete_event/<int:id>')
 def delete_event(id):
 	Event.delete_event(id)
-	return redirect('/')
+	return redirect('/event_index')
 
 # -------------------------- VENUES --------------------------------
 
@@ -68,7 +68,7 @@ def add_venue_data():
 @app.route('/delete_venue/<int:id>')
 def delete_venue(id):
 	Venue.delete_venue(id)
-	return redirect('/')
+	return redirect('/venue_index')
 
 # -------------------------- ORGS --------------------------------
 
@@ -96,7 +96,7 @@ def add_org_data():
 @app.route('/delete_org/<int:id>')
 def delete_org(id):
 	Organization.delete_org(id)
-	return redirect('/')
+	return redirect('/org_index')
 
 # -------------------------- ATTENDEES --------------------------------
 
@@ -127,7 +127,7 @@ def add_att_data():
 @app.route('/delete_att/<int:id>')
 def delete_att(id):
 	Attendee.delete_att(id)
-	return redirect('/')
+	return redirect('/att_index')
 
 # -------------------------- BOOKINGS --------------------------------
 
@@ -161,7 +161,7 @@ def add_book_data():
 @app.route('/delete_book/<int:id>')
 def delete_book(id):
 	Booking.delete_book(id)
-	return redirect('/')
+	return redirect('/book_index')
 
 # -------------------------- SPEAKERS --------------------------------
 
@@ -174,7 +174,7 @@ def add_speaker():
 
 	if speaker_name != '':
 		Speaker.add_speaker(speaker_name, speaker_bio, speaker_info)
-		return redirect('/')
+		return redirect('/speaker_index')
 	else:
 		return redirect('/')
 	
@@ -190,7 +190,7 @@ def add_speaker_data():
 @app.route('/delete_speaker/<int:id>')
 def delete_speaker(id):
 	Speaker.delete_speaker(id)
-	return redirect('/')
+	return redirect('/speaker_index')
 
 # -------------------------- CATERING --------------------------------
 
@@ -223,7 +223,7 @@ def add_catering_data():
 @app.route('/delete_catering/<int:id>')
 def delete_catering(id):
 	Catering.delete_catering(id)
-	return redirect('/')
+	return redirect('/catering_index')
 
 # -------------------------- STATIONS --------------------------------
 
@@ -256,7 +256,7 @@ def add_station_data():
 @app.route('/delete_station/<int:id>')
 def delete_station(id):
 	Station.delete_station(id)
-	return redirect('/')
+	return redirect('/station_index')
 
 
 if __name__=='__main__': 

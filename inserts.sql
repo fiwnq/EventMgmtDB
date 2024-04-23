@@ -1,12 +1,13 @@
 INSERT INTO Events (event_name, event_datetime, event_desc)
-VALUES ('Lipscomb TED Talks', '2024-02-13', 'Ted Talk Event'),
-	('Importance of Motivational Quotes', '2024-07-07', 'A comprehensive talk from a life coach on his experience with motivational quotes affecting both his life and the lives of many others.'),
-	('Cybersecurity Showcase', '2024-11-27', 'A knowledgeable IT professor will showcase popular hacking attack and how you can be safe on the internet.');
+VALUES ('Lipscomb TED Talks', '2024-02-13 12:30:00', 'Ted Talk Event'),
+	('Importance of Motivational Quotes', '2024-07-07 13:00:00', 'A comprehensive talk from a life coach on his experience with motivational quotes affecting both his life and the lives of many others.'),
+	('Cybersecurity Showcase', '2024-11-27 15:00:00', 'A knowledgeable IT professor will showcase popular hacking attack and how you can be safe on the internet.');
 
 INSERT INTO Speakers(speaker_name, speaker_bio, speaker_info)
-VALUES ('Kevin Hart', 'Comedian', 'email:kevinhart123@gmail.com phone: 345237654'),
-	('Christina Wallace','Writer and entrprenuer', 'email:cwallace345@gmail.com phone: 49503958309'),
-    ('Steve Nordstorm', 'Cybersecurity Professional' , 'email:snordy01@gmail.com phone:4569392049');
+VALUES ('Kevin Hart', 'Comedian', 'email:kevinhart123@gmail.com'),
+	('Christina Wallace','Writer and entrprenuer', 'email:cwallace345@gmail.com'),
+    ('Steve Nordstorm', 'Cybersecurity Professional' , 'email:snordy01@gmail.com'),
+    ('Stacey Abrams', 'Politician', 'imsostacy@gmail.com');
 
 INSERT INTO Venues(venue_name, venue_location, venue_capacity, venue_contact)
 VALUES ('Shinn Center', 'Lipscomb University', 600, 'email: lippy@gmail.com phone: 459394030'),
@@ -15,7 +16,10 @@ VALUES ('Shinn Center', 'Lipscomb University', 600, 'email: lippy@gmail.com phon
 
 INSERT INTO Organizations(org_name, org_desc) 
 VALUES ('Student Activities Board', 'Organization on Lipscomb Universitys Campus.'),
-	('Society of Women Engineers','Promotes women in the engineering field.');
+	('Society of Women Engineers','Promotes women in the engineering field.'),
+    ('Association of Computing Machinery', '...'),
+    ('American Red Cross', '...'),
+    ('Humane Society of the United States', '...');
 
 INSERT INTO Attendees(att_name, att_email, att_org_id)
 VALUES ('Lindsey Born', 'lborn@gmail.com', 2 ),

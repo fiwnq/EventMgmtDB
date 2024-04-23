@@ -120,7 +120,9 @@ def att_index():
 
 @app.route('/add_att_data')
 def add_att_data():
-	return render_template('add_attendee.html')
+	orgs = Organization.get_orgs()
+
+	return render_template('add_attendee.html', orgs=orgs)
 
 @app.route('/delete_att/<int:id>')
 def delete_att(id):
@@ -150,7 +152,11 @@ def book_index():
 
 @app.route('/add_book_data')
 def add_book_data():
-	return render_template('add_booking.html')
+	attendees = Attendee.get_atts()
+	events = Event.get_events()
+	venues = Venue.get_venues()
+
+	return render_template('add_booking.html', attendees=attendees, events=events, venues=venues)
 
 @app.route('/delete_book/<int:id>')
 def delete_book(id):
@@ -210,7 +216,9 @@ def catering_index():
 
 @app.route('/add_catering_data')
 def add_catering_data():
-	return render_template('add_catering.html')
+	events = Event.get_events()
+
+	return render_template('add_catering.html', events=events)
 
 @app.route('/delete_catering/<int:id>')
 def delete_catering(id):
@@ -240,7 +248,10 @@ def station_index():
 
 @app.route('/add_station_data')
 def add_station_data():
-	return render_template('add_station.html')
+	speakers = Speaker.get_speakers()
+	venues = Venue.get_venues()
+
+	return render_template('add_station.html', speakers=speakers, venues=venues)
 
 @app.route('/delete_station/<int:id>')
 def delete_station(id):

@@ -11,7 +11,7 @@
 		<input type="text" name="att_email" placeholder="attendee email...">
         <label>Attendee Organization</label>
         <select name="att_org_id">
-			{% for data in organizations %}
+			{% for data in orgs %}
             <option value="{{data.org_id}}">{{data.org_name}}</option>
         	{% endfor %}
 		</select>
